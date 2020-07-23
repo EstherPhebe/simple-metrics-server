@@ -1,0 +1,79 @@
+openapi: 3.0.1
+info:
+  title: simple-metrics
+  description: A simple ephemeral metrics logging &amp; reporting service that sums metrics by time window for the most recent hour
+  version: 1.0.0
+servers:
+- url: /api/v1
+tags:
+- name: Metrics
+  description: Metrics endpoints
+- name: Specification
+  description: The swagger API specification
+paths:
+  /metric/{key}:
+    post:
+      tags:
+      - Metrics
+      parameters:
+      - name: key
+        in: path
+        description: The key of the metric to update
+        required: true
+        schema:
+          type: string
+          example: active_visitors
+      description: Log a metric
+      requestBody:
+        description: A metric
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/MetricBody'
+        required: true
+      responses:
+        "200":
+          description: An empty object
+          content: {}
+  /metric/{key}/sum:
+    get:
+      tags:
+      - Metrics
+      parameters:
+      - name: key
+        in: path
+        description: The key of the metric to retrieve
+        required: true
+        schema:
+          type: string
+          example: active_visitors
+      responses:
+        "200":
+          description: Returns the sum of all metrics reported for this key over the past hour
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/MetricBody'
+        "404":
+          description: Metric not found
+          content: {}
+  /spec:
+    get:
+      tags:
+      - Specification
+      responses:
+        "200":
+          description: Return the API specification
+          content: {}
+components:
+  schemas:
+    MetricBody:
+      title: metric
+      required:
+      - value
+      type: object
+      properties:
+        value:
+          type: integer
+          example: 450
+
