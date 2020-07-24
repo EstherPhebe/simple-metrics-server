@@ -2,7 +2,7 @@
 
 [![codecov](https://codecov.io/gh/funspectre/simple-metrics-server/branch/master/graph/badge.svg?token=zjBNhxoa08)](https://codecov.io/gh/funspectre/simple-metrics-server)
 
-A simple ephemeral metrics logging &amp; aggregation server
+A simple ephemeral metrics logging &amp; aggregation server.
 
 ---
 
@@ -33,7 +33,7 @@ npm run dev:debug
 Compiles the application and starts it in production production mode.
 
 ```shell
-npm run compile
+npm run build
 npm start
 ```
 
