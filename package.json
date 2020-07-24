@@ -11,8 +11,7 @@
         "lint": "eslint -c .eslintrc.js '{server, test}/**/*.{js,ts,tsx}' --quiet",
         "lint:fix": "eslint -c .eslintrc.js '{server, test}/**/*.{js,ts,tsx}' --quiet --fix",
         "prepare": "cp .env.example .env",
-        "test": "mocha -r ts-node/register test/**/*.ts --exit",
-        "test:coverage": "nyc mocha -r ts-node/register test/**/*.ts --exit && nyc report --reporter=text-lcov > coverage.lcov && codecov",
+        "test": "nyc mocha -r ts-node/register test/**/*.ts --exit && nyc report --reporter=text-lcov > coverage.lcov && codecov",
         "test:debug": "mocha -r ts-node/register --inspect-brk test/**/*.ts --exit"
     },
     "dependencies": {
