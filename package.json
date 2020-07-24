@@ -12,7 +12,7 @@
         "lint:fix": "eslint -c .eslintrc.js '{server, test}/**/*.{js,ts,tsx}' --quiet --fix",
         "prepare": "cp .env.example .env",
         "test": "mocha -r ts-node/register test/**/*.ts --exit",
-        "test:coverage": "nyc mocha -r ts-node/register test/**/*.ts --exit",
+        "test:coverage": "nyc mocha -r ts-node/register test/**/*.ts --exit && nyc report --reporter=text-lcov > coverage.lcov && codecov",
         "test:debug": "mocha -r ts-node/register --inspect-brk test/**/*.ts --exit"
     },
     "dependencies": {
@@ -36,6 +36,7 @@
         "@typescript-eslint/eslint-plugin": "^3.4.0",
         "@typescript-eslint/parser": "^3.4.0",
         "chai": "^4.2.0",
+        "codecov": "^3.7.2",
         "eslint": "^7.3.1",
         "eslint-config-prettier": "^6.11.0",
         "eslint-plugin-prettier": "^3.1.4",

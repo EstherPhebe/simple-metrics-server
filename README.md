@@ -1,5 +1,7 @@
 # simple-metrics-server
 
+[![codecov](https://codecov.io/gh/funspectre/simple-metrics-server/branch/master/graph/badge.svg?token=zjBNhxoa08)](https://codecov.io/gh/funspectre/simple-metrics-server)
+
 A simple ephemeral metrics logging &amp; aggregation server
 
 ---
